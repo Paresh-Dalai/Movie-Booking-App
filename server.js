@@ -7,10 +7,13 @@ const dbConfig = require('./Configs/db.config')
 const mongoose = require('mongoose')
 
 
+
 const expressApp = express();
+var cors = require("cors");
 
 expressApp.use(bodyParser.json())
 expressApp.use(bodyParser.urlencoded({extended: true}))
+expressApp.use(cors())
 
 mongoose.connect(dbConfig.DB_URL)
 const db = mongoose.connection
